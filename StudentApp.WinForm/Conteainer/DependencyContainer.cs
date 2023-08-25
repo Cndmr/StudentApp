@@ -9,7 +9,11 @@ namespace StudentApp.WinForm.Conteainer
         ServiceProvider serviceProvider;
         public DependencyContainer()
         {
-            serviceProvider = new ServiceCollection().AddScoped<IGenderRepository, GenderRepository>().AddScoped<IInstructorRepository, InstructorRepository>().BuildServiceProvider();
+            serviceProvider = new ServiceCollection()
+                .AddScoped<IGenderRepository, GenderRepository>()
+                .AddScoped<IInstructorRepository, InstructorRepository>()
+                .AddScoped<IAppUserRepository,AppUserRepository>()
+                .BuildServiceProvider();
         }
         public IGenderRepository GetGenderRepositoryInstance()
         {
@@ -20,6 +24,11 @@ namespace StudentApp.WinForm.Conteainer
         {
             return
                 serviceProvider.GetRequiredService<IInstructorRepository>();
+        }
+        public IAppUserRepository GetAppUserRepositoryInstance()
+        {
+            return
+                serviceProvider.GetRequiredService<IAppUserRepository>();
         }
     }
 }

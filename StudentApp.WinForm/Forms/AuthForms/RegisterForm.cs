@@ -49,6 +49,7 @@ namespace StudentApp.WinForm.Forms.AuthForms
         {
 
         }
+        //auto mapper
         private List<InstructorListDto> ConverToInstructorDtoList(List<Instructor> instructors)
         {
             var list = new List<InstructorListDto>();
@@ -67,6 +68,21 @@ namespace StudentApp.WinForm.Forms.AuthForms
 
             }
             return list;
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtUserName.Text) && !string.IsNullOrEmpty(txtName.Text) &&
+                !string.IsNullOrEmpty(txtLastName.Text) && !string.IsNullOrEmpty(txtPass.Text) &&
+                !string.IsNullOrEmpty(txtPhoneNumber.Text) && !string.IsNullOrEmpty(txtStudentNumber.Text))
+            {
+
+            }
+            else 
+            {
+                MessageBox.Show("Alanları Boş Bırakmayınız.");
+            
+            }
         }
     }
 }
