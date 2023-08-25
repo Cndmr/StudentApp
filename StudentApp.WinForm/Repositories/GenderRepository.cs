@@ -1,17 +1,12 @@
 ﻿using StudentApp.WinForm.Entities;
 using StudentApp.WinForm.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StudentApp.WinForm.Interfaces;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace StudentApp.WinForm.Repositories
 {
-    public class GenderRepository:IGenderRepository
+    public class GenderRepository : IGenderRepository
     {
         public List<Gender> GetGenders()
         {

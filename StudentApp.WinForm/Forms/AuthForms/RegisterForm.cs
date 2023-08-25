@@ -1,18 +1,7 @@
 ﻿using StudentApp.WinForm.Conteainer;
+using StudentApp.WinForm.Dtos;
 using StudentApp.WinForm.Entities;
-using StudentApp.WinForm.Helpers;
 using StudentApp.WinForm.Interfaces;
-using StudentApp.WinForm.Repositories;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace StudentApp.WinForm.Forms.AuthForms
 {
@@ -49,15 +38,35 @@ namespace StudentApp.WinForm.Forms.AuthForms
         private void LoadInstructor()
         {
             var instructorList = instructorRepository.GetInstructors();
+            var list = ConverToInstructorDtoList(instructorList);
             cmbInstructor.DataSource = null;
             cmbInstructor.DataSource = instructorList;
-            cmbInstructor.DisplayMember = "Name";
+            cmbInstructor.DisplayMember = "Fullname";
             cmbInstructor.ValueMember = "Id";
         }
 
         private void cmbGender_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        private List<InstructorListDto> ConverToInstructorDtoList(List<Instructor> instructors)
+        {
+            var list = new List<InstructorListDto>();
+            foreach (var instructor in instructors)
+            {
+                var dto = new InstructorListDto();
+                dto.Id = instructor.Id;
+                dto.UserId = instructor.UserId;
+                dto.PhoneNumber = instructor.PhoneNumber;
+                dto.Fullname = instructor.Name + " " + instructor.Surname;
+                dto.Salary = instructor.Salary;
+                dto.GenderId = instructor.GenderId;
+                dto.Password = instructor.Password;
+                dto.UserName = instructor.UserName;
+                list.Add(dto);
+
+            }
+            return list;
         }
     }
 }

@@ -2,7 +2,6 @@ using StudentApp.WinForm.Conteainer;
 using StudentApp.WinForm.Forms.AuthForms;
 using StudentApp.WinForm.Helpers;
 using StudentApp.WinForm.Interfaces;
-using StudentApp.WinForm.Repositories;
 
 namespace StudentApp.WinForm
 {
@@ -12,7 +11,7 @@ namespace StudentApp.WinForm
         public LoginForm()
         {
             InitializeComponent();
-            genderRepository = new DependencyContainer().GetGenderRepositoryInstance(); 
+            genderRepository = new DependencyContainer().GetGenderRepositoryInstance();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
