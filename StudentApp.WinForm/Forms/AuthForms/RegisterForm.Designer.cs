@@ -84,6 +84,7 @@
             cmbGender.Name = "cmbGender";
             cmbGender.Size = new Size(306, 35);
             cmbGender.TabIndex = 4;
+            cmbGender.SelectedIndexChanged += cmbGender_SelectedIndexChanged;
             // 
             // txtUserName
             // 

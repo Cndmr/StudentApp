@@ -21,7 +21,7 @@ namespace StudentApp.WinForm.Repositories
             SqlCommand command = new SqlCommand();
             command.CommandType = CommandType.Text;
             command.Connection = connection;
-            command.CommandText = "select *from Genders";
+            command.CommandText = "select * from Genders";
             connection.Open();
             var reader = command.ExecuteReader();
             while (reader.Read())
