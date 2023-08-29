@@ -1,6 +1,7 @@
 ﻿using StudentApp.WinForm.Conteainer;
 using StudentApp.WinForm.Dtos;
 using StudentApp.WinForm.Entities;
+using StudentApp.WinForm.Helpers;
 using StudentApp.WinForm.Interfaces;
 
 namespace StudentApp.WinForm.Forms.AuthForms
@@ -72,6 +73,8 @@ namespace StudentApp.WinForm.Forms.AuthForms
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            var hashHelper = new HashHelper();
+            var hashedString = hashHelper.HashString("can");
             if (!string.IsNullOrEmpty(txtUserName.Text) && !string.IsNullOrEmpty(txtName.Text) &&
                 !string.IsNullOrEmpty(txtLastName.Text) && !string.IsNullOrEmpty(txtPass.Text) &&
                 !string.IsNullOrEmpty(txtPhoneNumber.Text) && !string.IsNullOrEmpty(txtStudentNumber.Text))
